@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,10 +39,12 @@ class AllCharactedPage extends StatelessWidget {
         child: Column(
           children: [
             CachedNetworkImage(
-              imageUrl: 'https://rickandmortyapi.com/api/character/avatar/99.jpeg', // Add the funky feature image URL
+              imageUrl:
+                  'https://rickandmortyapi.com/api/character/avatar/${Random().nextInt(500)}.jpeg', // Add the funky feature image URL
               fit: BoxFit.cover, // Make the image cover the full width
               height: 200,
               width: double.infinity,
+              useOldImageOnUrlChange: true,
             ),
             const SizedBox(height: 16), // Add some spacing between the image and the title
             const Text(

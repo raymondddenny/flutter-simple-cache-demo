@@ -40,6 +40,7 @@ class AllCharacterCubit extends Cubit<AllCharacterState> {
       debugPrint("Error cubit -> $e");
       // get local data
       if (e.toString().contains("No")) {
+        // NO internet connection
         debugPrint("called local data");
         Future.delayed(const Duration(milliseconds: 500), () async {
           final localData = await _localAllCharacterUseCase();
